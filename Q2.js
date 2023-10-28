@@ -1,6 +1,5 @@
-function isValidSudoku(board) {
-    // Helper function to check if an array of values has duplicates
-    const hasDuplicates = (arr) => {
+function Valid_Sudoku(board) {
+    const duplicates = (arr) => {
         const seen = new Set();
         for (const val of arr) {
             if (val !== '.' && seen.has(val)) {
@@ -13,7 +12,7 @@ function isValidSudoku(board) {
     
         // Check each row
         for (let i = 0; i < 9; i++) {
-        if (hasDuplicates(board[i])) {
+        if (duplicates(board[i])) {
             return false;
         }
         }
@@ -24,7 +23,7 @@ function isValidSudoku(board) {
         for (let i = 0; i < 9; i++) {
             column.push(board[i][j]);
         }
-        if (hasDuplicates(column)) {
+        if (duplicates(column)) {
             return false;
         }
         }
@@ -38,7 +37,7 @@ function isValidSudoku(board) {
                 box.push(board[i][j]);
             }
             }
-            if (hasDuplicates(box)) {
+            if (duplicates(box)) {
             return false;
             }
         }
@@ -61,5 +60,5 @@ function isValidSudoku(board) {
     ];
     
     // Check if the Sudoku board is valid
-    console.log(isValidSudoku(board));
+    console.log(Valid_Sudoku(board));
     
